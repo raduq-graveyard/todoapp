@@ -1,3 +1,16 @@
 <div>
-    TOTO {{toto}}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="todo in todos">
+            <td>{{todo.name}}</td>
+            <td>{{todo.description}}</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
