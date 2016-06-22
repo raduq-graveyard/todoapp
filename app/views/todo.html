@@ -1,8 +1,12 @@
 <div class="container">
-    <div class="row panel panel-primary">
+    <div class="row card">
+        <alert-msg message="message" type="type"></alert-msg>
+    </div>
+
+    <div class="row panel panel-primary card">
         <div class="col-lg-6">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Nova anotação..." ng-model="description">
+                <input type="text" class="form-control" placeholder="Nova anotação..." ng-model="todo.description">
                     <span class="input-group-btn"><button class="btn glyphicon glyphicon-floppy-disk"
                                                           ng-click="add()"></button></span>
             </div>
@@ -10,11 +14,11 @@
     </div>
     <div class="row panel panel-primary">
         <ul class="list-group" ng-repeat="todo in todos">
-            <li class="list-group-item">
+            <li class="list-group-item card">
                 <span>{{todo.description}}</span>
-
-                <div class="btn-group" role="group">
+                <div class="btn-group pull-right" role="group">
                     <button ng-if="!todo.finished" class="btn glyphicon glyphicon-ok"></button>
+                    <button class="btn glyphicon glyphicon-pencil" ng-click="update($index)"></button>
                     <button class="btn clear-button glyphicon glyphicon-trash" ng-click="delete($index)"></button>
                 </div>
             </li>
