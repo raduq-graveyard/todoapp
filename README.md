@@ -2,6 +2,8 @@
 
 This is my Todo App :)
 
-## I used : 
-
-* Angular + Stuff (router,loader,mocks)
+## How to build ?
+ 
+- Fork-it
+- run npm install (you must have the nodejs installed previously)
+- Enjoy !

@@ -41,7 +41,7 @@ angular.module('todoApp')
             $scope.clear();
         };
 
-        $scope.add = function () {
+        $scope.save = function () {
             if (!$scope.todo.description.length) {
                 $scope.alertMessage('A descrição deve ser preenchida !', 'alert-danger');
                 return;
