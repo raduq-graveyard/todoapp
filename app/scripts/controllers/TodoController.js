@@ -6,16 +6,15 @@ angular.module('todoApp')
         $scope.type = 'alert-info';
         $scope.message = '';
 
-        $scope.index = 0;
+        $scope.index = -1;
         $scope.todo = {
             description: '',
-            updating: false,
-            finished: false
+            updating: false
         };
         $scope.description = '';
 
         $scope.todos = [{description: 'Anotação teste 1', finished: false},
-            {description: 'Anotação numero 2', finished: false}];
+            {description: 'Anotação teste 2', finished: false}];
 
         $scope.alertMessage = function (message, type) {
             $scope.message = message;
@@ -25,13 +24,15 @@ angular.module('todoApp')
         $scope.clear = function () {
             $scope.todo = {
                 description: '',
-                updating: false,
-                finished: false
+                updating: false
             };
+            $scope.index = -1;
         };
 
         $scope.doUpdate = function () {
-            $scope.todos[$scope.index] = $scope.todo;
+            var newTodo = $scope.todo;
+            newTodo.updating = false
+            $scope.todos[$scope.index] = newTodo;
             $scope.clear();
         };
 
@@ -45,11 +46,12 @@ angular.module('todoApp')
                 $scope.alertMessage('A descrição deve ser preenchida !', 'alert-danger');
                 return;
             }
-            $scope.todo.updating ? $scope.doUpdate() : $scope.doInsert;
+            $scope.todo.updating ? $scope.doUpdate() : $scope.doInsert();
         };
 
         $scope.update = function ($index) {
             $scope.todo = $scope.todos[$index];
+            $scope.index = $index;
             $scope.todo.updating = true;
         };
 
