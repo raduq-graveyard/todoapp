@@ -16,7 +16,16 @@
     <div class="row panel panel-primary">
         <ul class="list-group" ng-repeat="todo in todos track by $index">
             <li class="list-group-item card">
+                <div class="col-lg-6" ng-if="todo.updating">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="todo.description">
+                        <span class="input-group-btn">
+                            <button class="btn glyphicon glyphicon-floppy-disk" ng-click="add()"></button>
+                        </span>
+                    </div>
+                </div>
                 <span>{{todo.description}}</span>
+
                 <div class="btn-group pull-right" role="group">
                     <button class="btn glyphicon glyphicon-pencil" ng-click="update($index)"></button>
                     <button class="btn clear-button glyphicon glyphicon-trash" ng-click="delete($index)"></button>

@@ -7,10 +7,10 @@ angular.module('todoApp')
         $scope.message = '';
 
         $scope.index = -1;
-        $scope.todo = {
-            description: '',
-            updating: false
-        };
+            $scope.todo = {
+                description: '',
+                updating: false
+            };
         $scope.description = '';
 
         $scope.todos = [{description: 'Anotação teste 1', finished: false},
